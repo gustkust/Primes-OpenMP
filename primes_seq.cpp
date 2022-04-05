@@ -4,7 +4,7 @@
 #include <omp.h>
 #include <math.h>
 
-const int range = 1000 * 1000 * 1000;
+const int range = 1000 * 100;
 
 
 int eratosthenes(int range)
@@ -32,9 +32,77 @@ int eratosthenes(int range)
 int main()
 {
     double start, stop;
+    // start = omp_get_wtime();
+    // printf("Liczba liczb pierwszych: %d\n", eratosthenes(range));
+    // stop = omp_get_wtime();
+    // printf("Czas przetwarzania wynosi %f sekund\n", ((double)stop - start));
+    FILE *f;
+	f = fopen("seq.txt", "w");
+    int i, res;
+    
+    i = 100000;
     start = omp_get_wtime();
-    printf("Liczba liczb pierwszych: %d\n", eratosthenes(range));
+    res = eratosthenes(i);
     stop = omp_get_wtime();
-    printf("Czas przetwarzania wynosi %f sekund\n", ((double)stop - start));
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 500000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 1000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 5000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 10000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 50000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 100000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    i = 500000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+    
+    i = 1000000000;
+    start = omp_get_wtime();
+    res = eratosthenes(i);
+    stop = omp_get_wtime();
+    fprintf(f, "%f\n", stop - start);
+    printf("done\n");
+
+    fclose(f);
     return 0;
 }
